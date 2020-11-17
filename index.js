@@ -211,9 +211,20 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
+function getRandomFlavors(arr1, arr2, arr3, arr4){
+    const allFlavors = [].concat(arr1, arr2, arr3, arr4);
+    const randomFlavors = [];
+    let flavorsLength = 31;
+    for(let i = 0; i < flavorsLength; i++) {
+        let randomNumber = Math.floor(Math.random()*allFlavors.length);
+        while(randomFlavors.includes(allFlavors[randomNumber])) {
+          randomNumber = Math.floor(Math.random()*allFlavors.length);
+        }
+        randomFlavors.push(allFlavors[randomNumber]);
+    }
+    return randomFlavors;
 }
+getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors);
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
