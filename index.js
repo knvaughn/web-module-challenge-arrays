@@ -46,7 +46,7 @@ Use the copy function below to do the following:
 */
 
 function copy(arr){
-    return arr.slice();
+    return [...arr];
 }    
 copy(originalFlavors);
 
@@ -186,8 +186,15 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-    /*code here*/
+function getAverageWordLength(arr){
+    const numberOfWords = [];
+    let sum = 0;
+    arr.forEach((item)=>{
+        let words = item.split(' ');
+        numberOfWords.push(words.length);
+        sum += words.length;
+    });
+    return sum/arr.length;
 }
 
 
